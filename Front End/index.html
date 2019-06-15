@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Contact Form</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    
+</head>
+<body>
+    <h1>Contact us</h1>
+    <form name="contactForm" method="POST">
+        <label for="kindOfRequest">Kind of request</label>
+        <select name="kindOfRequest" id="kindOfRequest"></select>
+        <label for="policyNumber">Policy Number</label>
+        <input type="text" name="policyNumber" id="policyNumber" required pattern="^[A-Za-z0-9]+$">
+        <label for="firstName">Name</label>
+        <input type="text" name="firstName" id="firstName" required pattern="^[A-Za-z]+$" >
+        <label for="lastName">Surname</label>
+        <input type="text" name="lastName" id="lastName" required pattern="^[A-Za-z]+$" >
+        <label for="requestText">Your request</label>
+        <textarea name="requestText" id="requestText" required maxlength="5000"></textarea>
+        <input type="submit" value="Send request">
+        <div id="remainingChars">0/5000</div>
+    </form>
+    <script src='main.js'></script>
+</body>
+</html>
