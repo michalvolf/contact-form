@@ -1,18 +1,26 @@
 const address = "http://localhost:8080/";
 
-addOptions();
+addRequestKindOptions();
+addHobbyOptions();
 
 document.querySelector("textarea").addEventListener("input", displayChars);
 document.querySelector("form").addEventListener("submit", submitForm);
 
 async function getRequestKinds() {
-    return await fetch("http://localhost:8080/kindofrequest")
+    return await fetch(address + "kindofrequest")
         .then(function(response) {
             return response.json();
         });
 }
 
-async function addOptions() {
+async function getHobbies() {
+    return await fetch(address + "hobby")
+        .then(function(response) {
+            return response.json();
+        });
+}
+
+async function addRequestKindOptions() {
     let selectItems = await getRequestKinds();
     let select = document.getElementById("kindOfRequest");
     for (let i = 0; i < selectItems.length; i++) {
@@ -21,6 +29,12 @@ async function addOptions() {
         option.innerHTML = selectItems[i].kind;
         select.appendChild(option);
     }
+}
+
+async function addHobbyOptions() {
+    let hobbyList = await getHobbies();
+    let form = document.getElementsByName("contactForm");
+    
 }
 
 function displayChars() {
